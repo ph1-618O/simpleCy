@@ -1,8 +1,9 @@
-decoded = []
-for char in coded:
-    if char.isalpha():
-        char = char.lower()
-        limitAlpha = ord(char) - shift
+def decoder(coded, shift):
+    decoded = []
+    for char in coded:
+        if char.isalpha():
+            char = char.lower()
+            limitAlpha = ord(char) - shift
             if (limitAlpha < ord('a')) :
                 backshift = ord('a') - limitAlpha
                 backshift = ord('z') - backshift
@@ -11,3 +12,4 @@ for char in coded:
                 decoded.append(backshift)
             else:
                 decoded.append(chr(limitAlpha))
+    return ''.join(decoded)
