@@ -52,3 +52,6 @@ def askInput():
             print('Invalid shift, please choose again. ')
             shiftNum = int(input('Enter a different number: '))
         return print(f'This is your coded message:: {caesar(toCode, shiftNum)}')
+        
+        
+print(askInput())
