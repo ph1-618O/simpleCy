@@ -30,3 +30,15 @@ def caesar(uncoded, shift):
                 coded.append(chr(frontShift))
                 #coded.append(frontShift)
     return ''.join(coded)
+    
+query = input("Decode, or Code? ")
+query = query.lower()
+if query == 'decode':
+    decodeMessage = input("Enter coded message:: ")
+    print(f"Message Recieved: {decodeMessage}")
+    shiftNum = int(input("Enter the shift:: "))
+    print(f'Shift Entered: {shiftNum}')
+    if shiftNum == 25:
+        print('Invalid shift, please choose again. ')
+        shiftNum = int(input('Enter a different number: '))
+    return print(f'This is your coded message:: {decoder(decodeMessage, shiftNum)}')
