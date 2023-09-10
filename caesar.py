@@ -1,3 +1,11 @@
+def validate_text(p_text):
+    try:
+        eval(p_text)
+        print(eval(p_text))
+        print("Invalid Input Try Again")
+    except:
+        print("Data is accepted")
+        
 def decoder(coded, shift):
     decoded = []
     for char in coded:
@@ -34,8 +42,10 @@ def caesar(uncoded, shift):
 def askInput():
     query = input("Decode, or Code? ")
     query = query.lower()
+    validate_text(query)
     if query == 'decode':
         decodeMessage = input("Enter coded message:: ")
+        validate_text(decodeMessage)
         print(f"Message Recieved: {decodeMessage}")
         shiftNum = int(input("Enter the shift:: "))
         print(f'Shift Entered: {shiftNum}')
@@ -46,8 +56,11 @@ def askInput():
     else:
         toCode = input('Enter message to code:: ')
         print(f"Message Recieved: {toCode}")
-        shiftNum = int(input('Enter the shift:'))
+        validate_text(toCode)
+        shiftNum = int(input('Enter the shift:')) - 1
+        #removing 1 because 1 = 0
         print(f'Shift Entered: {shiftNum}')
+        
         if shiftNum == 25:
             print('Invalid shift, please choose again. ')
             shiftNum = int(input('Enter a different number: '))
